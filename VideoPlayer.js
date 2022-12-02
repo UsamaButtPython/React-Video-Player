@@ -3,7 +3,7 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 function VideoPlayer({src}) {
   const transformComponentRef = useRef(null);
-  var tzoom=1
+  var zoomValue=1
   const zoomRef = useRef(null);
   const videolink=src
   const videoRef = useRef(null);
@@ -15,18 +15,16 @@ function VideoPlayer({src}) {
   let videoElement=null;
   const updateScale = (e) => {
     const targetScale = parseFloat(e.target.value);
-    const factor = Math.log(targetScale / tzoom);
+    const factor = Math.log(targetScale / zoomValue);
     const { zoomIn, zoomOut } = transformComponentRef.current;
-    if (targetScale > tzoom) {
+    if (targetScale > zoomValue) {
       zoomIn(factor, 0);
     } else {
       zoomOut(-factor, 0);
     }
 
-    tzoom=targetScale
-    console.log(tzoom,'set')
+    zoomValue=targetScale
     zoomRef.current.value=targetScale
-    // setZoom(targetScale);
   };
   function playVid() { 
     if(videoElement.paused || videoElement.ended){
@@ -37,7 +35,6 @@ function VideoPlayer({src}) {
     }  
   } 
   function muteVid() { 
-    console.log("in mute",videoElement.muted);
     if(videoElement.muted===false){
       videoElement.muted=true;
       }
@@ -118,11 +115,11 @@ function VideoPlayer({src}) {
     <TransformWrapper
     ref={transformComponentRef}
     onZoomStop={(e) => {
-      tzoom=e.state.scale
+      zoomValue=e.state.scale
       zoomRef.current.value=e.state.scale
     }}
     onZoom={(e) => {
-      tzoom=e.state.scale
+      zoomValue=e.state.scale
       zoomRef.current.value=e.state.scale
 
     }}
