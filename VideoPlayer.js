@@ -135,7 +135,7 @@ function VideoPlayer({src}) {
     <div className="video-progress">
     <p>It's progress bar</p>
       <progress ref={progressBar} id="progress-bar" value="0" min="0"></progress>
-    <p>It's progress bar</p>
+    <p>It's seek bar</p>
 
       <input ref={seek} className="seek" id="seek" value="0" min="0" type="range" step="1"/>
       <div ref={seekTooltip} className="seek-tooltip" id="seek-tooltip">00:00</div>
