@@ -31,6 +31,9 @@ import VideoPlayerNew from './VideoPlayerNew';
 <VideoPlayerNew src="http://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv"/>
 
 ```
+## Preview
+![Preview image](https://user-images.githubusercontent.com/97245406/205311018-4db74524-b7fb-4dcc-ad55-fa6e6cd46625.png)
+
 ## Contributing
 To build player in js:
 
